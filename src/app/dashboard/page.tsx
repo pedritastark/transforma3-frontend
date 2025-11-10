@@ -24,6 +24,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Grid2,
 } from '@mui/material';
 import {
   TrendingUp as TrendingUpIcon,
@@ -51,13 +52,8 @@ import {
 
 // Componente para KPIs de empresas
 const CompanyKPIs = () => (
-  <Box sx={{ 
-    display: 'grid', 
-    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, 
-    gap: 4, 
-    mb: 6 
-  }}>
-    <Box>
+  <Grid2 container spacing={4} sx={{ mb: 6 }}>
+    <Grid2 xs={12} sm={6}>
       <Card sx={{ 
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(20px)',
@@ -138,9 +134,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -183,9 +179,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -256,9 +252,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
         borderRadius: '16px',
@@ -319,14 +315,14 @@ const CompanyKPIs = () => (
           </Button>
         </CardContent>
       </Card>
-    </Box>
-  </Box>
+    </Grid>
+  </Grid>
 );
 
 // Componente para KPIs de proveedores
 const ProviderKPIs = () => (
-  <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 3, mb: 4 }}>
-    <Box>
+  <Grid container spacing={3} sx={{ mb: 4 }}>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -369,9 +365,9 @@ const ProviderKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -414,9 +410,9 @@ const ProviderKPIs = () => (
       </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -459,9 +455,9 @@ const ProviderKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Box>
+    </Grid>
     
-    <Box>
+    <Grid xs={12} sm={6}>
       <Card sx={{ 
         background: 'linear-gradient(135deg, #ff6f00 0%, #ffb74d 100%)',
         borderRadius: '16px',
@@ -522,16 +518,16 @@ const ProviderKPIs = () => (
           </Button>
         </CardContent>
       </Card>
-    </Box>
-  </Box>
+    </Grid>
+  </Grid>
 );
 
 
 // Componente para acciones rápidas
 const QuickActions = ({ userType }: { userType: string }) => (
   <Box sx={{ mb: 4 }}>
-    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: userType === 'company' ? '1fr 1fr' : '1fr 1fr', md: userType === 'company' ? '1fr 1fr 1fr' : '1fr 1fr' }, gap: 2 }}>
-      <Box>
+    <Grid2 container spacing={2}>
+      <Grid2 xs={12} sm={6} md={userType === 'company' ? 4 : 6}>
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -547,10 +543,10 @@ const QuickActions = ({ userType }: { userType: string }) => (
         >
           Crear Oferta
         </Button>
-      </Box>
+      </Grid>
       
       {userType === 'company' && (
-        <Box>
+        <Grid2 xs={12} sm={6} md={4}>
           <Button
             variant="outlined"
             startIcon={<ShoppingCartIcon />}
@@ -559,10 +555,10 @@ const QuickActions = ({ userType }: { userType: string }) => (
           >
       Crear Demanda
           </Button>
-        </Box>
+        </Grid2>
       )}
       
-      <Box>
+      <Grid2 xs={12} sm={6} md={userType === 'company' ? 4 : 6}>
         <Button
           variant="outlined"
           startIcon={<AssessmentIcon />}
@@ -571,8 +567,8 @@ const QuickActions = ({ userType }: { userType: string }) => (
         >
           Ver Publicaciones
         </Button>
-      </Box>
-    </Box>
+      </Grid2>
+    </Grid2>
   </Box>
 );
 
@@ -596,26 +592,26 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>Editar Información de la Empresa</DialogTitle>
       <DialogContent>
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 2, mt: 1 }}>
-          <Box>
+        <Grid2 container spacing={2} sx={{ mt: 1 }}>
+          <Grid2 xs={12} sm={6}>
             <TextField
               fullWidth
               label="Nombre de la Empresa"
               value={formData.companyName}
               onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
             />
-          </Box>
+          </Grid>
           
-          <Box>
+          <Grid xs={12} sm={6}>
             <TextField
               fullWidth
               label="Nombre del Contacto"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             />
-          </Box>
+          </Grid>
           
-          <Box>
+          <Grid xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Ciudad</InputLabel>
               <Select
@@ -629,9 +625,9 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
                 <MenuItem value="Barranquilla">Barranquilla</MenuItem>
               </Select>
             </FormControl>
-          </Box>
+          </Grid>
           
-          <Box>
+          <Grid xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel>Sector</InputLabel>
               <Select
@@ -645,17 +641,17 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
                 <MenuItem value="Tecnología">Tecnología</MenuItem>
               </Select>
             </FormControl>
-          </Box>
+          </Grid>
           
-          <Box sx={{ gridColumn: 'span 2' }}>
+          <Grid2 xs={12}>
             <TextField
               fullWidth
               label="Teléfono"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
