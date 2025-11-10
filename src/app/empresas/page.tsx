@@ -21,7 +21,6 @@ import {
   Paper,
   Avatar,
   Divider,
-  Grid,
 } from '@mui/material';
 import {
   Favorite,

@@ -357,8 +357,8 @@ const MarketplaceFilters = () => {
                 >
                   {getFilterOptions('region').map((option) => (
                     <Button
-                      key={option}
-                      onClick={() => handleOptionSelect('region', option)}
+                      key={typeof option === 'string' ? option : option.id}
+                      onClick={() => handleOptionSelect('region', typeof option === 'string' ? option : option.id)}
                       sx={{ 
                         display: 'block', 
                         width: '100%', 
