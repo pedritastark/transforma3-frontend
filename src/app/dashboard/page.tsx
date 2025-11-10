@@ -51,7 +51,7 @@ import {
 
 // Componente para KPIs de empresas
 const CompanyKPIs = () => (
-  <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 4, mb: 6 }}>
+  <Box>
     <Box>
       <Card sx={{ 
         background: 'rgba(255, 255, 255, 0.15)',
@@ -133,9 +133,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -178,9 +178,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -251,9 +251,9 @@ const CompanyKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
         borderRadius: '16px',
@@ -314,14 +314,14 @@ const CompanyKPIs = () => (
           </Button>
         </CardContent>
       </Card>
-    </Grid>
-  </Grid>
+    </Box>
+  </Box>
 );
 
 // Componente para KPIs de proveedores
 const ProviderKPIs = () => (
-  <Grid container spacing={3} sx={{ mb: 4 }}>
-    <Grid xs={12} sm={6}>
+  <Box>
+    <Box>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -364,9 +364,9 @@ const ProviderKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -409,9 +409,9 @@ const ProviderKPIs = () => (
       </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         backgroundColor: 'white', 
         borderRadius: '16px',
@@ -454,9 +454,9 @@ const ProviderKPIs = () => (
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
     
-    <Grid xs={12} sm={6}>
+    <Box>
       <Card sx={{ 
         background: 'linear-gradient(135deg, #ff6f00 0%, #ffb74d 100%)',
         borderRadius: '16px',
@@ -517,15 +517,15 @@ const ProviderKPIs = () => (
           </Button>
         </CardContent>
       </Card>
-    </Grid>
-  </Grid>
+    </Box>
+  </Box>
 );
 
 
 // Componente para acciones rápidas
 const QuickActions = ({ userType }: { userType: string }) => (
   <Box sx={{ mb: 4 }}>
-    <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+    <Box>
       <Box>
         <Button
           variant="contained"
@@ -542,7 +542,7 @@ const QuickActions = ({ userType }: { userType: string }) => (
         >
           Crear Oferta
         </Button>
-      </Grid>
+      </Box>
       
       {userType === 'company' && (
         <Box>
@@ -591,7 +591,7 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>Editar Información de la Empresa</DialogTitle>
       <DialogContent>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2, mt: 1 }}>
+        <Box>
           <Box>
             <TextField
               fullWidth
@@ -599,18 +599,18 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
               value={formData.companyName}
               onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
             />
-          </Grid>
+          </Box>
           
-          <Grid xs={12} sm={6}>
+          <Box>
             <TextField
               fullWidth
               label="Nombre del Contacto"
               value={formData.fullName}
               onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
             />
-          </Grid>
+          </Box>
           
-          <Grid xs={12} sm={6}>
+          <Box>
             <FormControl fullWidth>
               <InputLabel>Ciudad</InputLabel>
               <Select
@@ -624,9 +624,9 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
                 <MenuItem value="Barranquilla">Barranquilla</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Box>
           
-          <Grid xs={12} sm={6}>
+          <Box>
             <FormControl fullWidth>
               <InputLabel>Sector</InputLabel>
               <Select
@@ -640,7 +640,7 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
                 <MenuItem value="Tecnología">Tecnología</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
+          </Box>
           
           <Box>
             <TextField
@@ -649,8 +649,8 @@ const EditCompanyModal = ({ open, onClose, user }: { open: boolean, onClose: () 
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
