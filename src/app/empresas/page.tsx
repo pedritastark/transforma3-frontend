@@ -978,8 +978,8 @@ const CompaniesList = () => {
                       <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, color: '#1976d2' }}>
                         Información de Contacto
                       </Typography>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
+                      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 2 }}>
+                        <Box>
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                             <Phone sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                             <Typography variant="body2">
@@ -992,8 +992,8 @@ const CompaniesList = () => {
                               <strong>Email:</strong> {company.contact.email}
                             </Typography>
                           </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
+                        </Box>
+                        <Box>
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                             <Visibility sx={{ fontSize: '1rem', color: 'text.secondary' }} />
                             <Typography variant="body2">
@@ -1006,8 +1006,8 @@ const CompaniesList = () => {
                               <strong>Dirección:</strong> {company.contact.address}
                             </Typography>
                           </Box>
-                        </Grid>
-                      </Grid>
+                        </Box>
+                      </Box>
                     </Box>
                     <Divider sx={{ my: 2 }} />
                   </>

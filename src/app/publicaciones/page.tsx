@@ -148,8 +148,8 @@ export default function PublicacionesPage() {
               Crear Nueva Publicación
             </Typography>
             <form onSubmit={handleSubmit}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
+              <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 3 }}>
+                <Box>
                   <TextField
                     fullWidth
                     label="Título"
@@ -158,8 +158,8 @@ export default function PublicacionesPage() {
                     onChange={handleInputChange}
                     required
                   />
-                </Grid>
-                <Grid item xs={12} md={6}>
+                </Box>
+                <Box>
                   <FormControl fullWidth required>
                     <InputLabel>Tipo</InputLabel>
                     <Select
@@ -171,8 +171,8 @@ export default function PublicacionesPage() {
                       <MenuItem value="demanda">Demanda</MenuItem>
                     </Select>
                   </FormControl>
-                </Grid>
-                <Grid item xs={12}>
+                </Box>
+                <Box>
                   <TextField
                     fullWidth
                     label="Descripción"
@@ -183,8 +183,8 @@ export default function PublicacionesPage() {
                     rows={3}
                     required
                   />
-                </Grid>
-                <Grid item xs={12} md={4}>
+                </Box>
+                <Box>
                   <FormControl fullWidth required>
                     <InputLabel>Categoría</InputLabel>
                     <Select
@@ -199,8 +199,8 @@ export default function PublicacionesPage() {
                       <MenuItem value="organico">Orgánico</MenuItem>
                     </Select>
                   </FormControl>
-                </Grid>
-                <Grid item xs={12} md={4}>
+                </Box>
+                <Box>
                   <TextField
                     fullWidth
                     label="Precio (COP)"
@@ -209,8 +209,8 @@ export default function PublicacionesPage() {
                     value={formData.price}
                     onChange={handleInputChange}
                   />
-                </Grid>
-                <Grid item xs={12} md={4}>
+                </Box>
+                <Box>
                   <TextField
                     fullWidth
                     label="Cantidad"
@@ -220,8 +220,8 @@ export default function PublicacionesPage() {
                     onChange={handleInputChange}
                     required
                   />
-                </Grid>
-                <Grid item xs={12} md={6}>
+                </Box>
+                <Box>
                   <TextField
                     fullWidth
                     label="Unidad"
@@ -230,8 +230,8 @@ export default function PublicacionesPage() {
                     onChange={handleInputChange}
                     placeholder="kg, toneladas, unidades..."
                   />
-                </Grid>
-                <Grid item xs={12} md={6}>
+                </Box>
+                <Box>
                   <FormControl fullWidth required>
                     <InputLabel>Región</InputLabel>
                     <Select
@@ -246,8 +246,8 @@ export default function PublicacionesPage() {
                       <MenuItem value="Santander">Santander</MenuItem>
                     </Select>
                   </FormControl>
-                </Grid>
-                <Grid item xs={12}>
+                </Box>
+                <Box>
                   <TextField
                     fullWidth
                     label="Ubicación específica"
@@ -256,8 +256,8 @@ export default function PublicacionesPage() {
                     onChange={handleInputChange}
                     required
                   />
-                </Grid>
-                <Grid item xs={12}>
+                </Box>
+                <Box>
                   <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
                     <Button
                       variant="outlined"
@@ -276,16 +276,16 @@ export default function PublicacionesPage() {
                       Crear Publicación
                     </Button>
                   </Box>
-                </Grid>
-              </Grid>
+                </Box>
+              </Box>
             </form>
           </Paper>
         )}
 
         {/* Lista de publicaciones */}
-        <Grid container spacing={3}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 3 }}>
           {publicaciones.map((publicacion) => (
-            <Grid item xs={12} md={6} key={publicacion.id}>
+            <Box key={publicacion.id}>
               <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
@@ -336,9 +336,9 @@ export default function PublicacionesPage() {
                   </IconButton>
                 </Box>
               </Card>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {publicaciones.length === 0 && (
           <Box sx={{ textAlign: 'center', py: 8 }}>
