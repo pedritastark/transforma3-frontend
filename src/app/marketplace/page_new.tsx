@@ -255,8 +255,8 @@ const MarketplaceFilters = () => {
                 >
                   {getFilterOptions('category').map((option) => (
                     <Button
-                      key={option.id}
-                      onClick={() => handleOptionSelect('category', option.id)}
+                      key={typeof option === 'string' ? option : option.id}
+                      onClick={() => handleOptionSelect('category', typeof option === 'string' ? option : option.id)}
                       sx={{ 
                         display: 'block', 
                         width: '100%', 
@@ -265,7 +265,7 @@ const MarketplaceFilters = () => {
                         textTransform: 'none'
                       }}
                     >
-                      {option.name}
+                      {typeof option === 'string' ? option : option.name}
                     </Button>
                   ))}
                 </Paper>
@@ -306,8 +306,8 @@ const MarketplaceFilters = () => {
                 >
                   {getFilterOptions('post_type').map((option) => (
                     <Button
-                      key={option.id}
-                      onClick={() => handleOptionSelect('post_type', option.id)}
+                      key={typeof option === 'string' ? option : option.id}
+                      onClick={() => handleOptionSelect('post_type', typeof option === 'string' ? option : option.id)}
                       sx={{ 
                         display: 'block', 
                         width: '100%', 
@@ -316,7 +316,7 @@ const MarketplaceFilters = () => {
                         textTransform: 'none'
                       }}
                     >
-                      {option.name}
+                      {typeof option === 'string' ? option : option.name}
                     </Button>
                   ))}
                 </Paper>
